@@ -13,7 +13,7 @@ class Document:
                 insert = {word:1}
                 unique_words.update(insert)
             else:
-                unique_words.update([word:1++])
+                unique_words.update([word:1+=])
 
 def save_dictionary(dict,pathname):
     write_file = open("dictionary.txt","w")
