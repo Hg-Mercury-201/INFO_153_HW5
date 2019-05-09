@@ -10,10 +10,10 @@ class Document:
         words = text.split(" ",".")
         for word in words:
             if word not in unique_words:
-                insert = {word:1}
-                unique_words.update(insert)
+                new_word = {word:1}
+                unique_words.update(new_word)
             else:
-                unique_words.update([word:1+=])
+                unique_words[word] += 1
 
 def save_dictionary(dict,pathname):
     write_file = open("dictionary.txt","w")
@@ -23,4 +23,16 @@ def save_dictionary(dict,pathname):
 
 #produce TF and IDF stats
 def vectorize(path):
+    DF_dictionary = {}
+    r = open(path,"r")
+    words = r.readlines()
+    save_dictionary(DF_dictionary,out)
+    for word in words:
+        for checks in DF_dictionary:
+            if word not in DF_dictionary:
+                DF_dictionary.update({word:1})
+            else if word == checks:
+                DF_dictionary[word] += 1
+    save_dictionary(DF_dictionary,"DF_Dictionary.txt")
 
+        
