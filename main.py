@@ -3,11 +3,10 @@
 #Grab 20 text instances in 20 .txt files
 
 class Document:
-
-    unique_words = {}
-
+    @staticmethod
     def tokenize(text):
-        text.strip(";\".,/()[]!@#$%^&*()_")
+        unique_words = {}
+        #text.strip(";\".,/()[]!@#$%^&*()_")
         words = text.upper().split()
         print(words)
         for word in words:
@@ -18,11 +17,11 @@ class Document:
                 unique_words[word] += 1
         print(unique_words)
 
+
 def save_dictionary(dict,pathname):
     write_file = open("dictionary.txt","w")
     for pair in dict:
         write_file.write(pair + "\t")
-
 
 #produce TF and IDF stats
 def vectorize(path):
@@ -34,8 +33,10 @@ def vectorize(path):
         for checks in DF_dictionary:
             if word not in DF_dictionary:
                 DF_dictionary.update({word:1})
-            else if word == checks:
+            elif word is checks:
                 DF_dictionary[word] += 1
     save_dictionary(DF_dictionary,"DF_Dictionary.txt")
 
+doc = Document()
+doc.tokenize("This is the important text that is important to the project")
         
