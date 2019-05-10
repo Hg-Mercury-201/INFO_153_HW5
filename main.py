@@ -7,13 +7,16 @@ class Document:
     unique_words = {}
 
     def tokenize(text):
-        words = text.split(" ",".")
+        text.strip(";\".,/()[]!@#$%^&*()_")
+        words = text.upper().split()
+        print(words)
         for word in words:
             if word not in unique_words:
                 new_word = {word:1}
                 unique_words.update(new_word)
             else:
                 unique_words[word] += 1
+        print(unique_words)
 
 def save_dictionary(dict,pathname):
     write_file = open("dictionary.txt","w")
