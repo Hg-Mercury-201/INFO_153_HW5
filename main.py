@@ -40,4 +40,7 @@ def vectorize(pathname):
 
 
 vectorize("input_text.txt")
-print("done")
+print('''Done.
+Check both text documents
+to make sure that the correct
+results are going into the files.''')
